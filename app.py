@@ -3,14 +3,14 @@ from dash import html
 from dash import dcc
 import plotly.express as px
 import pandas as pd
-#import mh_z19
+import mh_z19
 
 # Load data
 df = pd.read_csv('stockdata2.csv', index_col=0, parse_dates=True)
 df.index = pd.to_datetime(df['Date'])
 
 def getCO2():
-    return mh_z19.read_all()['co2']
+    return str(mh_z19.read_all()['co2'])
 
 # Initialise the app
 app = dash.Dash(__name__,
